@@ -1,4 +1,5 @@
 {% extends "users/base.html" %}
+{% load static %}
 {% block body %}
     <div class="flex justify-center mt-5 p-10">
         <h2 class="text-3xl font-normal mb-2 text-gray-500">My Posts</h2>
@@ -14,13 +15,22 @@
                 </div>
                 <img src="{{ post.image.url }}">
             </div>
+
+            <div class="px-6 py-4">
+                <div class='icon-container flex gap-3'>
+                    <img class="w-5 h-5" src="{% static "users/images/like.png" %}">
+                    <img class="w-5 h-5" src="{% static "users/images/comment.png" %}">
+                    <img class="w-5 h-5" src="{% static "users/images/share.png" %}">
+                </div>
+            </div>
+
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{ post.title }}</div>
+                <p class="text-gray-700 text-base">{{ post.caption }}</p>
+            </div>
         </a>
         {% comment %} Card ends here {% endcomment %}
         {% endfor %}
     </div>
 {% endblock%}
-
-<h1>{{ post.title }}</h1>
-<h2>{{ post.user }}</h2>
-<img >
 
