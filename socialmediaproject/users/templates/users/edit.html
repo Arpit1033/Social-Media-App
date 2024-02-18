@@ -3,7 +3,7 @@
 <h2 class="text-2xl m-10 font-bold">🧑‍🦰Edit User Profile</h2>
 {% comment %} enctype : We have an image upload in out form {% endcomment %}
 <div class='conatiner py-5 mx-10'>
-    <form method="post" enctype='multipart/form-data'>
+    <form method="post" class="bg-white shadow-md m-10 px-8 rounded pt-6 pb-8 mb-4 w-4/5" enctype='multipart/form-data'>
         {% csrf_token %}
         <div class="mb-2">
             <label class="block text-grey-700 text-sm font-bold mb-2" for="">First Name</label>
@@ -33,7 +33,6 @@
             </div>
         </div>
     
-        {% comment %} <input type="submit"> {% endcomment %}
         <button type="submit" class="bg-green-500 text-white my-5 px-5 py-2">Submit</button>
     </form>
 </div>
