@@ -26,8 +26,9 @@ class Post(models.Model):
         
 class Comment(models.Model):
     post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
-    body = models.TextField()
+    body = models.CharField(max_length=100)
     created = models.DateTimeField(auto_now = True)
+    posted_by = models.CharField(max_length=100)
     
     # For ordering the comments according to the dates they have been created
     class Meta:
