@@ -11,6 +11,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length = 200,blank=True) # Useful when we want to associate any url
     # auto_now_add = True : Automatically add current date to the post
     created = models.DateField(auto_now_add=True)
+    # For saving list of people who liked a post (Many to Many Relationship)
+    liked_by = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name='posts_liked',blank=True)
     
     def __str__(self):
         return self.title
