@@ -23,3 +23,15 @@ class Post(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args,**kwargs)
+        
+class Comment(models.Model):
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
+    body = models.TextField()
+    created = models.DateTimeField(auto_now = True)
+    
+    # For ordering the comments according to the dates they have been created
+    class Meta:
+        ordering = ('created',)
+        
+    def __str__(self):
+        return self.body
